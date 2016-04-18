@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-
 <html>
-  <head>
-    <title>{{.title}}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
-    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
-    <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
-    {{range .moreStyles}}
-      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
-    {{end}}
-    {{range .moreScripts}}
-      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
-    {{end}}
-  </head>
-  <body>
+    <head>
+        <title>{{.title}}</title>
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="public/css/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="public/css/theme.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Cabin:400,600' rel='stylesheet' type='text/css'>
+        {{range .moreStyles}}
+        <link rel="stylesheet" type="text/css" href="{{.}}">
+        {{end}}
+        <script src="public/js/jquery-1.9.1.min.js"></script>
+        <script src="public/js/semantic.min.js"></script>
+        {{range .moreScripts}}
+        <script src="{{.}}" type="text/javascript"></script>
+        {{end}}
+    </head>
+    <body>
+        <div class="header">
+            <div class="nav container">
+                <div class="nav-link logo"><a href="./">Home</a></div>
+                <div class="nav-link"><a href="./add">Add</a></div>
+                <div class="search right aligned">
+                    <div class="ui icon input">
+                        <input type="text" class="search" placeholder="Search...">
+                        <i class="inverted circular search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div style="height: 100px"></div>
