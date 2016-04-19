@@ -1,6 +1,12 @@
 package app
 
-import "github.com/revel/revel"
+import (
+	"fmt"
+	"time"
+	"github.com/revel/revel"
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
+)
 
 func init() {
 	// Filters is the default set of global filters.
@@ -20,10 +26,22 @@ func init() {
 	}
 
 	revel.OnAppStart(InitDB)
+	revel.OnAppStart(Pinger.StartPolling)
 }
 
-func InitDB() {
+var DB *sql.DB
+var Pinger *ServerPinger = NewServerPinger()
 
+func InitDB() {
+	DB, _ = sql.Open("mysql", fmt.Sprintf("%s:%s@/%s", "root", "password", "ismyhostup"))
+
+	// Keep at least one connection open at all times
+	go func() {
+		for {
+			DB.Ping()
+			time.Sleep(15 * time.Second)
+		}
+	}()
 }
 
 var HeaderFilter = func(c *revel.Controller, fc []revel.Filter) {

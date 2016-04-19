@@ -2,15 +2,16 @@
     <head>
         <title>{{.title}}</title>
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="public/css/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="public/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="/public/css/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/public/css/theme.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Cabin:400,600' rel='stylesheet' type='text/css'>
         {{range .moreStyles}}
         <link rel="stylesheet" type="text/css" href="{{.}}">
         {{end}}
-        <script src="public/js/jquery-1.9.1.min.js"></script>
-        <script src="public/js/semantic.min.js"></script>
+        <script src="/public/js/jquery-1.9.1.min.js"></script>
+        <script src="/public/js/semantic.min.js"></script>
+        <script src="/public/js/ismyhostup.js"></script>
         {{range .moreScripts}}
         <script src="{{.}}" type="text/javascript"></script>
         {{end}}
@@ -18,15 +19,21 @@
     <body>
         <div class="header">
             <div class="nav container">
-                <div class="nav-link logo"><a href="./">Home</a></div>
-                <div class="nav-link"><a href="./add">Add</a></div>
+                <div class="nav-link logo"><a href="/">Home</a></div>
+                <div class="nav-link"><a href="/add">Add</a></div>
                 <div class="search right aligned">
                     <div class="ui icon input">
                         <input type="text" class="search" placeholder="Search...">
                         <i class="inverted circular search link icon"></i>
                     </div>
                 </div>
+                <div class="ui labeled button" tabindex="0">
+                    <div class="ui basic blue button"><i class="fork icon"></i> Forks</div>
+                    <a class="ui basic left pointing blue label">1,048</a>
+                </div>
             </div>
         </div>
         <div class="body">
             <div style="height: 100px"></div>
+                {{if .flash.success}}<div class="container notification"><div class="ui positive message">{{.flash.success}}</div></div>{{end}}
+                {{if .flash.error}}<div class="container notification"><div class="ui negative message">{{.flash.error}}</div></div>{{end}}

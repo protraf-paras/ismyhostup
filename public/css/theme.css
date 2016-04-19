@@ -42,11 +42,11 @@ b {
 }
 
 .padding-sm {
-    padding: 5px;
+    padding: 5px;   
 }
 
 .padding-md {
-    padding: 8px;
+    padding: 11px 12px 15px 10px;
 }
 
 .padding {
@@ -96,8 +96,9 @@ b {
     background-color: #383838;
     color: #fff;
     height: 200px;
-    font-size: 16px;
-    letter-spacing: 1px;
+    font-size: 15px;
+    letter-spacing: 0.055em;
+    color: rgb(220, 220, 220);
 }
 
 input.search[type=text] {
@@ -112,16 +113,38 @@ input.search[type=text] {
     border-width: 3px 0 0 0;
     border-style: solid;
     border-color: #fff;
+    font-size: 1.15em;
+    letter-spacing: 0.035em;
+    text-align: center;
+}
+
+.uptime-card p {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .online {
-    border-color: green;
+    border-color: #27ae60;
 }
 
 .offline {
-    border-color: red;
+    border-color: #e74c3c;
 }
 
 .slow {
-    border-color: yellow;
+    border-color: #f1c40f;
+}
+
+.time {
+    margin: 10px 0;
+}
+
+.notification {
+    padding: 0px 0px 25px 0px;
+}
+
+.disqus-container {
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
 }

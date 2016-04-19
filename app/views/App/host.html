@@ -8,21 +8,30 @@
             <div class="padding-sm">
                 <div class="{{.Status}} uptime-card padding-md">
                     <strong>{{.Canonical}}</strong>
-                    <p>
                     {{if eq .Status "online"}}
-                        Everything is up
+                        <p>Everything is up</p>
                     {{else if eq .Status "slow"}}
-                        Things look slow
+                        <p>Things look slow</p>
                     {{else if eq .Status "offline"}}
-                        Network is offline!
+                        <p>Network is offline!</p>
                     {{end}}
-                    </p>
                     <div class="time"><small class="date-format">{{.Date}}</small></div>
-                    <a class="ui tiny basic button" href="./host/{{.URL}}">History</a>
                 </div>
             </div>
         </div>
         {{end}}
+    </div>
+    <div class="disqus-container">
+        <div id="disqus_thread"></div>
+        <script>
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//protraf.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     </div>
 </div>
 
